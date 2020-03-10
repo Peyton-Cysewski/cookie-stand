@@ -1,3 +1,7 @@
+body {
+    background-color: salmon;
+}
+
 /*FIX ME: use a custom-linked google font*/
 #title {
     font-family: Arial, Helvetica, sans-serif;
