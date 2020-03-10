@@ -24,7 +24,7 @@ var seattle = {
     array.push(total);
     return array;
   },
-}
+};
 
 var tokyo = {
   location: 'Tokyo',
@@ -49,7 +49,7 @@ var tokyo = {
     array.push(total);
     return array;
   },
-}
+};
 
 var dubai = {
   location: 'Dubai',
@@ -74,7 +74,7 @@ var dubai = {
     array.push(total);
     return array;
   },
-}
+};
 
 var paris = {
   location: 'Paris',
@@ -99,7 +99,7 @@ var paris = {
     array.push(total);
     return array;
   },
-}
+};
 
 var lima = {
   location: 'Lima',
@@ -124,6 +124,18 @@ var lima = {
     array.push(total);
     return array;
   },
+};
+
+function timeText (num) {
+  if (num < 6) {
+    return (num + 6) + 'am';
+  } else if (num === 6) {
+    return 12 + 'pm';
+  } else if (num < 14) {
+    return ((num + 6) % 12) + 'pm';
+  } else {
+    return 'Total';
+  }
 }
 
 function addName(object, dest) {
@@ -134,7 +146,7 @@ function addName(object, dest) {
 
 function addNum(object,index,dest) {
   var storeInfo = document.createElement('li');
-  storeInfo.textContent = object.makeSalesArray()[index];
+  storeInfo.textContent = timeText(index) + ': ' + object.makeSalesArray()[index] + ' cookies';
   dest.appendChild(storeInfo);
 }
 
