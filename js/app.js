@@ -1,193 +1,79 @@
 'use strict';
 
+var storeList = [];
 
-var seattle = {
-  location: 'Seattle',
-  hours: 14,
-  minCust: 23,
-  maxCust: 65,
-  avgCust: 6.3,
-  randDailyCust: function() {
-    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
-  },
-  calcSales: function() {
-    return Math.floor(this.randDailyCust() * this.avgCust);
-  },
-  makeSalesArray: function () {
-    var array = [];
-    var total = 0;
-    var i;
-    for (i = 0; i < this.hours; i++) {
-      array.push(this.calcSales());
-      total += array[i];
-    }
-    array.push(total);
-    return array;
-  },
+function addCell(cellInfo,destination) {
+  var cell = document.createElement('td');
+  cell.textContent = cellInfo;
+  destination.appendChild(cell);
+}
+
+function store(location, minimumCustomers, maximumCustomers, averageCookies) {
+  this.loc = location;
+  this.minCust = minimumCustomers;
+  this.maxCust = maximumCustomers;
+  this.avgCook = averageCookies;
+  storeList.push(this);
+}
+
+store.prototype.hours = 14;
+store.prototype.randCust = function() {
+  return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
 };
-
-var tokyo = {
-  location: 'Tokyo',
-  hours: 14,
-  minCust: 3,
-  maxCust: 24,
-  avgCust: 1.2,
-  randDailyCust: function() {
-    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
-  },
-  calcSales: function() {
-    return Math.floor(this.randDailyCust() * this.avgCust);
-  },
-  makeSalesArray: function () {
-    var array = [];
-    var total = 0;
-    var i;
-    for (i = 0; i < this.hours; i++) {
-      array.push(this.calcSales());
-      total += array[i];
-    }
-    array.push(total);
-    return array;
-  },
+store.prototype.sales = function() {
+  return Math.floor(this.randCust() * this.avgCook);
 };
-
-var dubai = {
-  location: 'Dubai',
-  hours: 14,
-  minCust: 11,
-  maxCust: 38,
-  avgCust: 3.7,
-  randDailyCust: function() {
-    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
-  },
-  calcSales: function() {
-    return Math.floor(this.randDailyCust() * this.avgCust);
-  },
-  makeSalesArray: function () {
-    var array = [];
-    var total = 0;
-    var i;
-    for (i = 0; i < this.hours; i++) {
-      array.push(this.calcSales());
-      total += array[i];
-    }
-    array.push(total);
-    return array;
-  },
-};
-
-var paris = {
-  location: 'Paris',
-  hours: 14,
-  minCust: 20,
-  maxCust: 38,
-  avgCust: 2.3,
-  randDailyCust: function() {
-    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
-  },
-  calcSales: function() {
-    return Math.floor(this.randDailyCust() * this.avgCust);
-  },
-  makeSalesArray: function () {
-    var array = [];
-    var total = 0;
-    var i;
-    for (i = 0; i < this.hours; i++) {
-      array.push(this.calcSales());
-      total += array[i];
-    }
-    array.push(total);
-    return array;
-  },
-};
-
-var lima = {
-  location: 'Lima',
-  hours: 14,
-  minCust: 2,
-  maxCust: 16,
-  avgCust: 4.6,
-  randDailyCust: function() {
-    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
-  },
-  calcSales: function() {
-    return Math.floor(this.randDailyCust() * this.avgCust);
-  },
-  makeSalesArray: function () {
-    var array = [];
-    var total = 0;
-    var i;
-    for (i = 0; i < this.hours; i++) {
-      array.push(this.calcSales());
-      total += array[i];
-    }
-    array.push(total);
-    return array;
-  },
-};
-
-function timeText (num) {
-  if (num < 6) {
-    return (num + 6) + 'am';
-  } else if (num === 6) {
-    return 12 + 'pm';
-  } else if (num < 14) {
-    return ((num + 6) % 12) + 'pm';
-  } else {
-    return 'Total';
+store.prototype.makeSalesArray = function() {
+  var array = [this.loc];
+  var total = 0;
+  var i;
+  for (i = 0; i < this.hours; i++) {
+    array.push(this.sales());
+    total += array[i+1];
   }
-}
-
-function addName(object, dest) {
-  var storeName = document.createElement('h1');
-  storeName.textContent = object.location;
-  dest.appendChild(storeName);
-}
-
-function addNum(object,index,dest) {
-  var storeInfo = document.createElement('li');
-  storeInfo.textContent = timeText(index) + ': ' + object.makeSalesArray()[index] + ' cookies';
-  dest.appendChild(storeInfo);
-}
-
-function populatePage(object) {
-  
-  var storeList = document.getElementById('storelist');
-  var storeGroup = document.createElement('li');
-  var storePacket = document.createElement('ul');
-
-  addName(object, storeGroup);
-
-  for (var i = 0; i < object.hours + 1; i++) {
-    addNum(object,i,storePacket);
+  array.push(total);
+  return array;
+};
+store.prototype.addToTable = function() {
+  var storeArray = this.makeSalesArray();
+  var tableEl = document.getElementById('storeTable');
+  var row = document.createElement('tr');
+  for (var i = 0; i < storeArray.length; i++) {
+    addCell(storeArray[i],row);
   }
+  tableEl.appendChild(row);
+};
 
-  storeGroup.appendChild(storePacket);
-
-  storeList.appendChild(storeGroup);
+function addColumnNames () {
+  var tableEl = document.getElementById('storeTable');
+  var row = document.createElement('tr');
+  for (var i = 0; i < 16; i++) {
+    var colText = '';
+    if (i === 0) {
+      colText = '';
+    } else if (i < 7) {
+      colText = (i + 5) + 'am';
+    } else if (i === 7) {
+      colText = 12 + 'pm';
+    } else if (i < 15) {
+      colText = ((i + 6) % 12) + 'pm';
+    } else {
+      colText = 'Daily Location Total';
+    }
+    addCell(colText,row);
+  }
+  tableEl.appendChild(row);
 }
 
-populatePage(seattle);
-populatePage(tokyo);
-populatePage(dubai);
-populatePage(paris);
-populatePage(lima);
+var seattle = new store('Seattle',23,65,6.3);
+var tokyo = new store('Tokyo',3,25,1.2);
+var dubai = new store('Dubai',11,38,3.7);
+var paris = new store('Paris',20,38,2.3);
+var lima = new store('Lima',2,16,4.6);
 
-// The manual order that helped me understand it
-// var storeGroup = document.createElement('li');
-// var storeName = document.createElement('h1');
-// var storePacket = document.createElement('ul');
-// var storeInfo = document.createElement('li');
-
-
-// storeName.textContent = seattle.location;
-// storeInfo.textContent = seattle.makeSalesArray()[0];
-
-// storePacket.appendChild(storeInfo);
-
-// storeGroup.appendChild(storeName);
-// storeGroup.appendChild(storePacket);
-
-
-// var storeList = document.getElementById('storelist');
-// storeList.appendChild(storeGroup);
+addColumnNames();
+seattle.addToTable();
+tokyo.addToTable();
+dubai.addToTable();
+paris.addToTable();
+lima.addToTable();
