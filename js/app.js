@@ -2,10 +2,10 @@
 
 var storeList = [];
 
-function addCell(cellInfo,destination) {
+function addCell(cellInfo,destinationRow) {
   var cell = document.createElement('td');
   cell.textContent = cellInfo;
-  destination.appendChild(cell);
+  destinationRow.appendChild(cell);
 }
 
 function store(location, minimumCustomers, maximumCustomers, averageCookies) {
@@ -13,6 +13,7 @@ function store(location, minimumCustomers, maximumCustomers, averageCookies) {
   this.minCust = minimumCustomers;
   this.maxCust = maximumCustomers;
   this.avgCook = averageCookies;
+  this.salesArray = this.makeSalesArray();
   storeList.push(this);
 }
 
@@ -35,7 +36,7 @@ store.prototype.makeSalesArray = function() {
   return array;
 };
 store.prototype.addToTable = function() {
-  var storeArray = this.makeSalesArray();
+  var storeArray = this.salesArray;
   var tableEl = document.getElementById('storeTable');
   var row = document.createElement('tr');
   for (var i = 0; i < storeArray.length; i++) {
@@ -65,8 +66,22 @@ function addColumnNames () {
   tableEl.appendChild(row);
 }
 
+function addTotals(objArray) {
+  var tableEl = document.getElementById('storeTable');
+  var row = document.createElement('tr');
+  addCell('Totals',row);
+  for (var i = 0; i < 15; i++) {
+    var colTotal = 0;
+    for (var j = 0; j < objArray.length; j++) {
+      colTotal = colTotal + objArray[j].salesArray[i+1];
+    }
+    addCell(colTotal,row);
+  }
+  tableEl.appendChild(row);
+}
+
 var seattle = new store('Seattle',23,65,6.3);
-var tokyo = new store('Tokyo',3,25,1.2);
+var tokyo = new store('Tokyo',3,24,1.2);
 var dubai = new store('Dubai',11,38,3.7);
 var paris = new store('Paris',20,38,2.3);
 var lima = new store('Lima',2,16,4.6);
@@ -77,3 +92,4 @@ tokyo.addToTable();
 dubai.addToTable();
 paris.addToTable();
 lima.addToTable();
+addTotals(storeList);
