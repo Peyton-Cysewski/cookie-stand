@@ -12,12 +12,10 @@
         <img id="logo" src="../img/salmon.png" alt="Graphic of a salmon for the logo.">
         <h1 id="title">Sales</h1>
     </div>
-    <div>
-        <ul>
-            <li class="nav"><a href="../index.html">Home</a></li>
-            <li class="nav"><a href="../pages/sales.html">Sales</a></li>
-            <li class="nav"><a href="../pages/contact.html">Contact</a></li>
-        </ul>
+    <div id="dynamicNav">
+        <a class="dynamic" href="../index.html">Home</a>
+        <a class="dynamicCurrent" href="../pages/sales.html">Sales</a>
+        <a class="dynamic" href="../pages/contact.html">Contact</a>
     </div>
     <div>
         <fieldset id="update">
@@ -39,8 +37,8 @@
                     Average Cookies per Customer<br>
                     <input box="avgCook" type="number"></input><br>
                 </label>
+                <button id="boom" type="submit">Add Store</button>
             </form>
-            <button type="submit">Add Store</button>
         </fieldset>
     </div>
     <table id="storeTable"></table>

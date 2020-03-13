@@ -66,7 +66,7 @@ function addHeader () {
   tableEl.appendChild(row);
 }
 
-function makeTable(objArray) {
+function makeRows(objArray) {
   for (var i = 0; i < objArray.length; i++) {
     objArray[i].addToTable();
   }
@@ -88,7 +88,7 @@ function makeTotalsRow(objArray) {
 
 function makeCompleteTable(objArray) {
   addHeader();
-  makeTable(objArray);
+  makeRows(objArray);
   makeTotalsRow(objArray);
 }
 var seattle = new store('Seattle',23,65,6.3);
@@ -100,12 +100,15 @@ var lima = new store('Lima',2,16,4.6);
 
 makeCompleteTable(storeList);
 
-var storeFormButtonEl = document.getElementById('update');
+var storeFormButtonEl = document.getElementById('boom');
 
 function handleButton(event) {
   event.preventDefault();
-  new store(event.target.store.value, event.target.minCust.value, event.target.maxCust.value, event.target.avgCook.value);
-  makeCompleteTable(storeList);
+  // console.log('check');
+  var x = new store(event.target.store.value, event.target.minCust.value, event.target.maxCust.value, event.target.avgCook.value);
+  console.log(x);
+  // makeCompleteTable(storeList);
+  // makeRows(storeList);
 }
 
 storeFormButtonEl.addEventListener('submit', handleButton);

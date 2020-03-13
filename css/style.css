@@ -1,5 +1,5 @@
 body {
-    background-color: salmon;
+    background-color: white;
 }
 
 #titleBox {
@@ -28,10 +28,11 @@ body {
 .nav {
     display: inline-block;
     width: 33%;
+    padding: 25px 0px 25px;
     text-align: center;
     font-size: 25px;
     font-family: Arial, Helvetica, sans-serif;
-    margin: 25px 0px 25px 0px;
+    top: 25px;
 }
 
 .nav > a:link, a:visited {
@@ -48,7 +49,7 @@ table {
     width: 100%;
 }
 
-table, td {
+td {
     border: red thick solid;
 }
 
@@ -59,4 +60,34 @@ table, td {
 
 #welcome > p {
     text-align: center;
+}
+
+fieldset {
+    border: gray solid 5px;
+}
+
+#dynamicNav {
+    border: black 5px solid;
+    background-color: lightgray;
+    display: flex;
+    justify-content: space-around;
+}
+
+#dynamicNav > a {
+    text-decoration: none;
+    padding: 25px 0px 25px;
+    text-align: center;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 25px;
+    width: 33%;
+}
+
+.dynamicCurrent {
+    background-color: salmon;
+}
+
+#dynamicNav > a:hover {
+    color: white;
+    background-color: black;
 }
