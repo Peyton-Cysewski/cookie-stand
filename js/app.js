@@ -99,3 +99,13 @@ var lima = new store('Lima',2,16,4.6);
 // var test = new store('Test Store',10,40,3.5);
 
 makeCompleteTable(storeList);
+
+var storeFormButtonEl = document.getElementById('update');
+
+function handleButton(event) {
+  event.preventDefault();
+  new store(event.target.store.value, event.target.minCust.value, event.target.maxCust.value, event.target.avgCook.value);
+  makeCompleteTable(storeList);
+}
+
+storeFormButtonEl.addEventListener('submit', handleButton);

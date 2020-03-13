@@ -19,7 +19,31 @@
             <li class="nav"><a href="../pages/contact.html">Contact</a></li>
         </ul>
     </div>
-        <table id="storeTable"></table>
+    <div>
+        <fieldset id="update">
+            <h2>Add Cookie Stand</h2>
+            <form id="Stores">
+                <label>
+                    Store Location<br>
+                    <input box="store" type="text"></input><br>
+                </label>
+                <label>
+                    Minimum Hourly Customers<br>
+                    <input box="minCust" type="number"></input><br>
+                </label>
+                <label>
+                    Maximum Hourly Customers<br>
+                    <input box="maxCust" type="number"></input><br>
+                </label>
+                <label>
+                    Average Cookies per Customer<br>
+                    <input box="avgCook" type="number"></input><br>
+                </label>
+            </form>
+            <button type="submit">Add Store</button>
+        </fieldset>
+    </div>
+    <table id="storeTable"></table>
     <script src="../js/app.js"></script>
 </body>
 </html>
