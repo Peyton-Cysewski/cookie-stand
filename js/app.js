@@ -86,12 +86,16 @@ function makeTotalsRow(objArray) {
   tableEl.appendChild(row);
 }
 
+function makeCompleteTable(objArray) {
+  addHeader();
+  makeTable(objArray);
+  makeTotalsRow(objArray);
+}
 var seattle = new store('Seattle',23,65,6.3);
 var tokyo = new store('Tokyo',3,24,1.2);
 var dubai = new store('Dubai',11,38,3.7);
 var paris = new store('Paris',20,38,2.3);
 var lima = new store('Lima',2,16,4.6);
+// var test = new store('Test Store',10,40,3.5);
 
-addHeader();
-makeTable(storeList);
-makeTotalsRow(storeList);
+makeCompleteTable(storeList);
