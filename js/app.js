@@ -38,20 +38,20 @@ store.prototype.makeSalesArray = function() {
 store.prototype.addToTable = function() {
   var storeArray = this.salesArray;
   var tableEl = document.getElementById('storeTable');
-  var row = document.createElement('tr');
+  var row = document.createElement('tbody');
   for (var i = 0; i < storeArray.length; i++) {
     addCell(storeArray[i],row);
   }
   tableEl.appendChild(row);
 };
 
-function addColumnNames () {
+function addHeader () {
   var tableEl = document.getElementById('storeTable');
-  var row = document.createElement('tr');
+  var row = document.createElement('thead');
   for (var i = 0; i < 16; i++) {
     var colText = '';
     if (i === 0) {
-      colText = '';
+      colText = 'Location';
     } else if (i < 7) {
       colText = (i + 5) + 'am';
     } else if (i === 7) {
@@ -66,9 +66,15 @@ function addColumnNames () {
   tableEl.appendChild(row);
 }
 
-function addTotals(objArray) {
+function makeTable(objArray) {
+  for (var i = 0; i < objArray.length; i++) {
+    objArray[i].addToTable();
+  }
+}
+
+function makeTotalsRow(objArray) {
   var tableEl = document.getElementById('storeTable');
-  var row = document.createElement('tr');
+  var row = document.createElement('tfoot');
   addCell('Totals',row);
   for (var i = 0; i < 15; i++) {
     var colTotal = 0;
@@ -86,10 +92,6 @@ var dubai = new store('Dubai',11,38,3.7);
 var paris = new store('Paris',20,38,2.3);
 var lima = new store('Lima',2,16,4.6);
 
-addColumnNames();
-seattle.addToTable();
-tokyo.addToTable();
-dubai.addToTable();
-paris.addToTable();
-lima.addToTable();
-addTotals(storeList);
+addHeader();
+makeTable(storeList);
+makeTotalsRow(storeList);
