@@ -96,19 +96,17 @@ var tokyo = new store('Tokyo',3,24,1.2);
 var dubai = new store('Dubai',11,38,3.7);
 var paris = new store('Paris',20,38,2.3);
 var lima = new store('Lima',2,16,4.6);
-// var test = new store('Test Store',10,40,3.5);
 
 makeCompleteTable(storeList);
 
-var storeFormButtonEl = document.getElementById('boom');
+var storeFormButtonEl = document.getElementById('Stores');
 
 function handleButton(event) {
   event.preventDefault();
-  // console.log('check');
   var x = new store(event.target.store.value, event.target.minCust.value, event.target.maxCust.value, event.target.avgCook.value);
-  console.log(x);
-  // makeCompleteTable(storeList);
-  // makeRows(storeList);
+  var table = document.getElementById('storeTable');
+  table.innerHTML = null;
+  makeCompleteTable(storeList);
 }
 
 storeFormButtonEl.addEventListener('submit', handleButton);
