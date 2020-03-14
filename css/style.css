@@ -1,9 +1,13 @@
+/* Whole Body */
 body {
     background-color: white;
+    width: 100%;
 }
 
+/* Page Header */
 #titleBox {
     position: relative;
+    padding: 15px;
 }
 
 #logo {
@@ -12,47 +16,50 @@ body {
     z-index: 99;
 }
 
-/*FIX ME: use a custom-linked google font*/
 #title {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Nunito, Arial, Helvetica, sans-serif;
     font-size: 75px;
     text-align: center;
-    width: 100%;
+    /* width: 100%; */
+    padding: auto;
     position: absolute;
-    left: 0;
-    top: 50%;
-    z-index: 100;
-    
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;   
 }
 
-.nav {
-    display: inline-block;
-    width: 33%;
+/* Navigation Bar */
+
+#dynamicNav {
+    box-shadow: 0 0 10px black;
+    background-color: lightgray;
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0;
+}
+
+#dynamicNav > a, a:link, a:visited{
+    text-decoration: none;
     padding: 25px 0px 25px;
     text-align: center;
     font-size: 25px;
     font-family: Arial, Helvetica, sans-serif;
     top: 25px;
-}
-
-.nav > a:link, a:visited {
-    text-decoration: none;
+    width: 33.333333333333333333%;
     color: black;
-    
 }
 
-.nav > a:hover {
-    color: red;
+.current {
+    background-color: salmon;
 }
 
-table {
-    width: 100%;
+#dynamicNav > a:hover {
+    color: white;
+    background-color: black;
 }
 
-td {
-    border: red thick solid;
-}
-
+/* Index Home Page */
 #welcome > h1 {
     text-align: center;
     font-size: 30px;
@@ -62,32 +69,48 @@ td {
     text-align: center;
 }
 
-fieldset {
-    border: gray solid 5px;
+/* Sales Page */
+
+/* Table */
+table {
+    width: 100%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: rgb(255, 178, 169);
+    /* box-shadow: 0 0 10px black; */
+    border: black solid thin;
+    /* margin: 15px; */
 }
 
-#dynamicNav {
-    border: black 5px solid;
-    background-color: lightgray;
-    display: flex;
-    justify-content: space-around;
+td {
+    padding: 5px;
 }
 
-#dynamicNav > a {
-    text-decoration: none;
-    padding: 25px 0px 25px;
+td:nth-child(odd) {
+    background-color: rgb(253, 137, 124);
+
+}
+
+td:last-child {
     text-align: center;
-    font-size: 25px;
-    font-family: Arial, Helvetica, sans-serif;
-    top: 25px;
-    width: 33%;
+    border-left: double 5px black;
+
 }
 
-.dynamicCurrent {
-    background-color: salmon;
+thead {
+    font-weight: bold;
 }
 
-#dynamicNav > a:hover {
-    color: white;
-    background-color: black;
+tbody {
+
 }
+
+tfoot {
+border-top: double 5px black;
+}
+
+/* Form */
+fieldset {
+    margin: 15px;
+}
+
+/* Contact Page */

@@ -19,10 +19,14 @@ function store(location, minimumCustomers, maximumCustomers, averageCookies) {
 
 store.prototype.hours = 14;
 store.prototype.randCust = function() {
-  return Math.floor(Math.random() * (this.maxCust - this.minCust + 1) + this.minCust);
+  var x = Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust;
+  // console.log(x);
+  return x;
 };
 store.prototype.sales = function() {
-  return Math.floor(this.randCust() * this.avgCook);
+  var x = Math.floor(this.randCust() * this.avgCook);
+  // console.log(x);
+  return x;
 };
 store.prototype.makeSalesArray = function() {
   var array = [this.loc];
@@ -96,6 +100,7 @@ var tokyo = new store('Tokyo',3,24,1.2);
 var dubai = new store('Dubai',11,38,3.7);
 var paris = new store('Paris',20,38,2.3);
 var lima = new store('Lima',2,16,4.6);
+//var innerTEST = new store('test',10,20,10);
 
 makeCompleteTable(storeList);
 
@@ -103,7 +108,13 @@ var storeFormButtonEl = document.getElementById('Stores');
 
 function handleButton(event) {
   event.preventDefault();
-  var x = new store(event.target.store.value, event.target.minCust.value, event.target.maxCust.value, event.target.avgCook.value);
+  var name = event.target.store.value;
+  var minCust = Number(event.target.minCust.value);
+  var maxCust = Number(event.target.maxCust.value);
+  var avgCook = Number(event.target.avgCook.value);
+  // console.log(name, minCust, maxCust, avgCook);
+  var x = new store(name, minCust, maxCust, avgCook);
+  // console.log(x);
   var table = document.getElementById('storeTable');
   table.innerHTML = null;
   makeCompleteTable(storeList);

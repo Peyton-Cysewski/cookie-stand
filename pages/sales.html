@@ -6,6 +6,7 @@
     <title>Salmon Cookies</title>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="titleBox">
@@ -13,29 +14,25 @@
         <h1 id="title">Sales</h1>
     </div>
     <div id="dynamicNav">
-        <a class="dynamic" href="../index.html">Home</a>
-        <a class="dynamicCurrent" href="../pages/sales.html">Sales</a>
-        <a class="dynamic" href="../pages/contact.html">Contact</a>
+        <a href="../index.html">Home</a>
+        <a class="current" href="../pages/sales.html">Sales</a>
+        <a href="../pages/contact.html">Contact</a>
     </div>
     <div>
         <fieldset id="update">
             <h2>Add Cookie Stand</h2>
             <form id="Stores">
                 <label>
-                    Store Location<br>
-                    <input name="store" type="text"></input><br>
+                    <input name="store" type="text" placeholder="Store Location"></input><br>
                 </label>
                 <label>
-                    Minimum Hourly Customers<br>
-                    <input name="minCust" type="number"></input><br>
+                    <input name="minCust" type="number" placeholder="Minimum Customers"></input><br>
                 </label>
                 <label>
-                    Maximum Hourly Customers<br>
-                    <input name="maxCust" type="number"></input><br>
+                    <input name="maxCust" type="number" placeholder="Maximum Customers"></input><br>
                 </label>
                 <label>
-                    Average Cookies per Customer<br>
-                    <input name="avgCook" type="number"></input><br>
+                    <input name="avgCook" type="number" step="any" placeholder="Average Cookies"></input><br>
                 </label>
                 <button type="submit">Add Store</button>
             </form>
