@@ -1,6 +1,6 @@
 /* Whole Body */
 body {
-    background-color: white;
+    background-color: wheat;
     width: 100%;
 }
 
@@ -8,6 +8,7 @@ body {
 #titleBox {
     position: relative;
     padding: 15px;
+    background-color: white;
 }
 
 #logo {
@@ -21,12 +22,14 @@ body {
     font-size: 75px;
     text-align: center;
     /* width: 100%; */
-    padding: auto;
+    /* padding: auto; */
     position: absolute;
     top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 100;   
+    /* backdrop-filter: blur(10px); */
+    text-shadow: 0 0 8px white;
 }
 
 /* Navigation Bar */
@@ -36,7 +39,8 @@ body {
     background-color: lightgray;
     display: flex;
     justify-content: space-around;
-    margin: 15px 0;
+    z-index: 150;
+    margin-bottom: 15px;
 }
 
 #dynamicNav > a, a:link, a:visited{
@@ -60,25 +64,71 @@ body {
 }
 
 /* Index Home Page */
-#welcome > h1 {
+#container {
+    width: 100%;
+    display: flex;
+}
+
+#container > div {
+    margin: 15px;
+}
+
+/* Left Column */
+#leftCol {
+    display: inline-block;
+    width: 33.3333333%;
+}
+
+/* Middle Column */
+#middleCol {
+    display: inline-block;
+    width: 33.3333333%;
+}
+
+img {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+img:last-child {
+    margin-bottom: 0px;
+}
+
+#welcome {
+    background-color: none;
+    z-index: 100;
     text-align: center;
+    color: rgb(81, 81, 209);
+}
+
+#welcome > h1 {
     font-size: 30px;
+    padding-bottom: 15px;
 }
 
 #welcome > p {
-    text-align: center;
+}
+
+/* Right Column */
+#rightCol {
+    display: inline-block;
+    width: 33.3333333%;
 }
 
 /* Sales Page */
 
 /* Table */
+#tableContainer {
+    display: flex;
+}
+
 table {
     width: 100%;
     font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: rgb(255, 178, 169);
-    /* box-shadow: 0 0 10px black; */
     border: black solid thin;
-    /* margin: 15px; */
+    margin: 15px;
 }
 
 td {
@@ -86,18 +136,18 @@ td {
 }
 
 td:nth-child(odd) {
-    background-color: rgb(253, 137, 124);
-
+    background-color: rgb(255, 137, 124);
 }
 
 td:last-child {
     text-align: center;
+    border-bottom: solid black 1px;
     border-left: double 5px black;
-
 }
 
 thead {
     font-weight: bold;
+    border-bottom: solid black 1px;
 }
 
 tbody {
@@ -110,7 +160,15 @@ border-top: double 5px black;
 
 /* Form */
 fieldset {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
     margin: 15px;
+    display: flex;
+    align-items: center;
+}
+
+button {
+    margin: auto;
 }
 
 /* Contact Page */
