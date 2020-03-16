@@ -6,17 +6,41 @@
     <title>Salmon Cookies</title>
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="title">Sales</div>
-    <div>
-        <ul>
-            <li class="nav"><a href="../index.html">Home</a></li>
-            <li class="nav"><a href="../pages/sales.html">Sales</a></li>
-            <li class="nav"><a href="../pages/contact.html">Contact</a></li>
-        </ul>
+    <div id="titleBox">
+        <img id="logo" src="../img/salmon.png" alt="Graphic of a salmon for the logo.">
+        <h1 id="title">Sales</h1>
     </div>
+    <div id="dynamicNav">
+        <a href="../index.html">Home</a>
+        <a class="current" href="../pages/sales.html">Sales</a>
+        <a href="../pages/contact.html">Contact</a>
+    </div>
+    <div>
+        <fieldset id="update">
+            <h2>Add Cookie Stand</h2>
+            <form id="Stores">
+                <label>
+                    <input name="store" type="text" placeholder="Store Location"></input><br>
+                </label>
+                <label>
+                    <input name="minCust" type="number" placeholder="Minimum Customers"></input><br>
+                </label>
+                <label>
+                    <input name="maxCust" type="number" placeholder="Maximum Customers"></input><br>
+                </label>
+                <label>
+                    <input name="avgCook" type="number" step="any" placeholder="Average Cookies"></input><br>
+                </label>
+                <button type="submit">Add Store</button>
+            </form>
+        </fieldset>
+    </div>
+    <div id="tableContainer">
         <table id="storeTable"></table>
+    </div>
     <script src="../js/app.js"></script>
 </body>
 </html>

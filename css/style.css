@@ -1,23 +1,191 @@
+/* Whole Body */
 body {
-    background-color: salmon;
+    background-color: wheat;
+    width: 100%;
 }
 
-/*FIX ME: use a custom-linked google font*/
+/* Page Header */
+#titleBox {
+    position: relative;
+    padding: 15px;
+    background-color: white;
+}
+
+#logo {
+    width: 100%;
+    position: relative;
+    z-index: 99;
+}
+
 #title {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Nunito, Arial, Helvetica, sans-serif;
     font-size: 75px;
     text-align: center;
-    margin: 25px 0px 25px 0px;
+    /* width: 100%; */
+    /* padding: auto; */
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;   
+    /* backdrop-filter: blur(10px); */
+    text-shadow: 0 0 8px white;
 }
 
-.nav {
-    display: inline-block;
-    width: 33%;
+/* Navigation Bar */
+
+#dynamicNav {
+    box-shadow: 0 0 10px black;
+    background-color: lightgray;
+    display: flex;
+    justify-content: space-around;
+    z-index: 150;
+    margin-bottom: 15px;
+}
+
+#dynamicNav > a, a:link, a:visited{
+    text-decoration: none;
+    padding: 25px 0px 25px;
     text-align: center;
     font-size: 25px;
     font-family: Arial, Helvetica, sans-serif;
-    margin: 25px 0px 25px 0px;
+    top: 25px;
+    width: 33.333333333333333333%;
+    color: black;
 }
-table, td {
-    border: red thick solid;
+
+.current {
+    background-color: salmon;
+}
+
+#dynamicNav > a:hover {
+    color: white;
+    background-color: black;
+}
+
+/* Index Home Page */
+#container {
+    width: 100%;
+    display: flex;
+}
+
+#container > div {
+    margin: 15px;
+}
+
+/* Left Column */
+#leftCol {
+    display: inline-block;
+    width: 33.3333333%;
+}
+
+/* Middle Column */
+#middleCol {
+    display: inline-block;
+    width: 33.3333333%;
+}
+
+img {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+img:last-child {
+    margin-bottom: 0px;
+}
+
+#welcome {
+    background-color: none;
+    z-index: 100;
+    text-align: center;
+    color: rgb(126, 111, 72);
+}
+
+#welcome > h1 {
+    font-size: 35px;
+    padding-bottom: 15px;
+}
+
+#welcome > p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* Right Column */
+#rightCol {
+    display: inline-block;
+    width: 33.3333333%;
+}
+
+/* Sales Page */
+
+/* Table */
+#tableContainer {
+    display: flex;
+}
+
+table {
+    width: 100%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: rgb(255, 178, 169);
+    border: black solid thin;
+    margin: 15px;
+}
+
+td {
+    padding: 5px;
+}
+
+td:nth-child(odd) {
+    background-color: rgb(255, 137, 124);
+}
+
+td:last-child {
+    text-align: center;
+    border-bottom: solid black 1px;
+    border-left: double 5px black;
+}
+
+thead {
+    font-weight: bold;
+    border-bottom: solid black 1px;
+}
+
+tbody {
+
+}
+
+tfoot {
+border-top: double 5px black;
+}
+
+/* Form */
+fieldset {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    margin: 15px;
+    display: flex;
+    align-items: center;
+}
+
+button {
+    margin: auto;
+}
+
+/* Contact Page */
+
+#contactInfo {
+    text-align: center;
+    color: rgb(126, 111, 72);
+}
+
+#contactInfo h1 {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+#contactInfo p {
+    font-size: 20px;
+    margin-bottom: 5px;
 }
