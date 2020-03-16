@@ -99,15 +99,17 @@ img:last-child {
     background-color: none;
     z-index: 100;
     text-align: center;
-    color: rgb(81, 81, 209);
+    color: rgb(126, 111, 72);
 }
 
 #welcome > h1 {
-    font-size: 30px;
+    font-size: 35px;
     padding-bottom: 15px;
 }
 
 #welcome > p {
+    font-size: 20px;
+    margin-bottom: 20px;
 }
 
 /* Right Column */
@@ -172,3 +174,18 @@ button {
 }
 
 /* Contact Page */
+
+#contactInfo {
+    text-align: center;
+    color: rgb(126, 111, 72);
+}
+
+#contactInfo h1 {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+#contactInfo p {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
